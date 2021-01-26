@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -14,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --passWithNoTests",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -22,6 +23,25 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "rootDir": "src",
+    "setupFiles": [
+      "./setupTests.js"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testRegex": "(/specs/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|svg|css|less|scss)$": "<rootDir>/__jest__/fileMock.js"
+    }
   },
   "browserslist": {
     "production": [
