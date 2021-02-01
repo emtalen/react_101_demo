@@ -1,6 +1,13 @@
 import logo from './logo.svg';
+import React, { useEffect } from 'react'
+const App = () => {
+  useEffect(() => {
+    myOwnFunction()
+  }, [])
 
-function App() {
+  const myOwnFunction = () => {
+
+  }
   return (
     <div className="App">
       <header className="App-header">
