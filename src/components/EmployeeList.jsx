@@ -1,17 +1,27 @@
 import React, { Component } from 'react'
+// import axios from 'axios'
 
 class EmployeeList extends Component {
   state = {
     employees: []
   }
 
-  componentDidMount() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://reqres.in/api/users')
-    xhr.onload = () => {
-      this.setState({ employees: JSON.parse(xhr.responseText).data })
-    }
-    xhr.send()
+  async componentDidMount() {
+    // for XMLHttpRequest
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'https://reqres.in/api/users')
+    // xhr.onload = () => {
+    //   this.setState({ employees: JSON.parse(xhr.responseText).data })
+    // }
+    // xhr.send()
+    // for Axios
+    // let response = await axios.get('https://reqres.in/api/users')
+    // for fetch
+
+    let response = await (await fetch(`https://reqres.in/api/users`)).json()
+
+    this.setState({ employees: response.data })
+
   }
 
 

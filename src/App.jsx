@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React, { useEffect } from 'react'
+import EmployeeList from './components/EmployeeList'
 const App = () => {
   useEffect(() => {
     myOwnFunction()
@@ -10,6 +11,7 @@ const App = () => {
   }
   return (
     <div className="App">
+       <EmployeeList />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
